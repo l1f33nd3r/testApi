@@ -1,0 +1,17 @@
+language: csharp  
+sudo: required  
+mono: none
+dotnet: 3.1
+services: 
+  - docker
+before_script:
+  - dotnet restore
+  - docker-compose up --build
+script:  
+  - dotnet test ./TestHttpTests -c Release
+after_success:
+  - docker build -t l1f33nd3r/test-http ./TestHttp
+  # log in to docker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images
+  - docker push l1f33nd3r/test-http

@@ -6,7 +6,7 @@ services:
   - docker
 before_script:
   - dotnet restore
-  - docker-compose up --build
+  - docker-compose up -d --build
 script:  
   - dotnet test ./TestHttpTests -c Release
 after_success:

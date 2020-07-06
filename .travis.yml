@@ -14,4 +14,4 @@ after_success:
   # log in to docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images
-  - docker push l1f33nd3r/test-http
+  - docker push docker push l1f33nd3r/test-http-api:test-http

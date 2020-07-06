@@ -10,7 +10,7 @@ before_script:
 script:  
   - dotnet test ./TestHttpTests -c Release
 after_success:
-  - docker build -t l1f33nd3r/test-http ./TestHttp
+  - docker build -t test-http ./TestHttp
   # log in to docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images

@@ -32,7 +32,10 @@ namespace TestHttp.Controllers
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
+                return new DataModel
+                {
+                    Name = "Error During processing"
+                };
             }
 
         }
